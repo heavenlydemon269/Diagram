@@ -1,53 +1,54 @@
 ```mermaid
-%% Use Case Diagram for E-lib Voice
-usecaseDiagram
-    actor User
-    actor Admin
+%% E-lib Voice Website Wireframe (Refactored for parser stability)
+graph TD;
+
+    %% User Journey Subgraph
+    subgraph "User Journey";
+        %% 1. Define all nodes in this subgraph first
+        MLP[MLP<br>Main Landing Page];
+        SUP(SUP<br>Sign Up Page);
+        LP(LP<br>Login Page);
+        UDP[UDP<br>User Dashboard];
+        USP[USP<br>User Search Page];
+        UBDP[UBDP<br>Book Details Page];
+        BRP[BRP<br>Book Request Page];
+        ACA[ACA<br>AI Chatbot Assistant];
+        ABP[ABP<br>Audio Book Page];
+
+        %% 2. Define all links for this subgraph
+        MLP -->|'Get Started'| SUP;
+        MLP -->|'Login'| LP;
+        SUP -->|'Voice Registration:<br>Hello My name is...'| UDP;
+        LP -->|"Voice Authentication:<br>Hello, I'm [name]..."| UDP;
+        UDP -->|'Use Search'| USP;
+        UDP -->|'Click Recommended<br>or Continue Reading'| UBDP;
+        UDP -->|'Request a Book'| BRP;
+        UDP -->|'Get Assistance'| ACA;
+        USP -->|'Click Book Result'| UBDP;
+        USP -->|'Book not found?'| BRP;
+        UBDP -->|'Access Audio Version'| ABP;
+        ABP -->|'Go Back'| UBDP;
+        BRP -->|'Submit Request'| UDP;
+    end;
     
-    rectangle "E-lib Voice System" {
-        User -- (Register)
-        (Register) ..> (Enroll Voiceprint) : <<Include>>
-        note right of (Register) : "Hello My name is [name]..."
-        
-        User -- (Login)
-        (Login) ..> (Authenticate Voiceprint) : <<Include>>
-        note right of (Login) : "Hello, I'm [name]..."
-        
-        User -- (Search for Books)
-        User -- (Browse Recommendations)
-        User -- (View Book Details)
-        User -- (Listen to Audio Book)
-        (Listen to Audio Book) ..> (Control Playback) : <<Include>>
-        
-        User -- (Request New Book)
-        (Search for Books) ..> (Request New Book) : <<Extend>>
-        note right of (Request New Book)
-          BRP: Book Request Page
-        end note
+    %% Admin Journey Subgraph
+    subgraph "Admin Journey";
+        %% 1. Define all nodes in this subgraph first
+        ASP(ASP<br>Admin Sign Up Page);
+        AdminLP[Admin Login Page];
+        ADP[ADP<br>Admin Dashboard];
+        ABAP[ABAP<br>Book Adding Page];
 
-        User -- (Get AI Assistance)
-        (Get AI Assistance) ..> (AI Chatbot)
-        note left of (Get AI Assistance)
-          ACA: AI Chatbot Assistant
-        end note
+        %% 2. Define all links for this subgraph
+        ASP --> AdminLP;
+        AdminLP --> ADP;
+        ADP -->|'Click Add New Book'| ABAP;
+        ADP -- "View/Manage<br>Book Requests" --> ADP;
+        ABAP -->|'Submit New Book'| ADP;
+    end;
+    
+    %% Styling
+    style MLP fill:#E8F5E9,stroke:#1E8E3E,stroke-width:2px;
+    style ASP fill:#FCE4EC,stroke:#C2185B,stroke-width:2px;
 
-        User -- (Manage Data)
-        note left of (Manage Data)
-          Allows deleting voiceprint 
-        end note
-
-        Admin -- (Admin Login)
-        Admin -- (Manage Book Requests)
-        note right of (Manage Book Requests)
-          ADP: Admin Dashboard
-        end note
-        
-        Admin -- (Add New Book)
-        note right of (Add New Book)
-          ABAP: Book Adding Page
-        end note
-    }
-
-    actor "AI Chatbot" as AIChatbot
-    (Get AI Assistance) -- AIChatbot
 ```
