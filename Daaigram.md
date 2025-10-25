@@ -1,3 +1,4 @@
+```mermaid
 %% Use Case Diagram for E-lib Voice
 usecaseDiagram
     actor User
@@ -49,3 +50,4 @@ usecaseDiagram
 
     actor "AI Chatbot" as AIChatbot
     (Get AI Assistance) -- AIChatbot
+```
