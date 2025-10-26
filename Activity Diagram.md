@@ -1,4 +1,4 @@
-```mermaid
+
 %% User Journey (rebuilt as a Flowchart 'graph TD')
 %% Refactored: Removed ALL special characters from labels.
 graph TD
@@ -52,5 +52,3 @@ graph TD
     R --> S
     S --> Z
     Q -- No --> Z
-
-```
