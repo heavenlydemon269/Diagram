@@ -1,4 +1,4 @@
-```mermaid
+
 %% E-lib Voice Website Wireframe (Refactored for parser stability)
 graph TD;
 
@@ -51,4 +51,3 @@ graph TD;
     style MLP fill:#E8F5E9,stroke:#1E8E3E,stroke-width:2px;
     style ASP fill:#FCE4EC,stroke:#C2185B,stroke-width:2px;
 
-```
