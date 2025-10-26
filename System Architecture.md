@@ -1,4 +1,4 @@
-```mermaid
+
 %% E-lib Voice System Architecture
 graph TD
 
@@ -88,5 +88,3 @@ graph TD
     class APIGateway,AuthService,LibraryService,AdminService,VoiceService,ChatbotService service
     class MySQL,Pinecone db
     class ResemblyzerModel,WhisperModel,gTTSModel,MistralModel,RecEngine model
-
-```
