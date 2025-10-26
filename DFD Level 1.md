@@ -1,4 +1,4 @@
-```mermaid
+
 %% DFD Level 1 for E-lib Voice
 %% Corrected Syntax: Using (["..."]) for Ovals
 
@@ -68,4 +68,4 @@ graph TD
     class P1,P2,P3,P4,P5,P6 process
     class User entity
     class D1,D2,D3,D4 datastore
-```
+
