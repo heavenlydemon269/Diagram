@@ -1,4 +1,4 @@
-```mermaid
+
 %% Relational Database Schema for E-lib Voice
 
 erDiagram
@@ -46,4 +46,3 @@ erDiagram
     User ||--o{ Search_History : "performs"
     User ||--o{ Chat_History : "has"
 
-```
