@@ -1,4 +1,4 @@
-```mermaid
+
 sequenceDiagram
     participant User
     participant AI Voice Bot (Interface)
@@ -53,4 +53,3 @@ sequenceDiagram
     AI Voice Bot (Interface)-->>User: "[Reads the detailed summary]"
     deactivate AI Voice Bot (Interface)
 
-```
